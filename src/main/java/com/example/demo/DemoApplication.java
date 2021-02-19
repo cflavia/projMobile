@@ -26,7 +26,9 @@ public class DemoApplication extends ImportData {
         {
             connect();
             SpringApplication.run(DemoApplication.class, args);
-            Person p=new Person(1,"Mara");
+            String par = String.join(",", getId(4));
+            String[] par1=par.split(" ");
+            Person p=new Person(Integer.valueOf(par1[0]),par1[1]);
             System.out.println("* Persoana: " + p.getName()+ " a accesat site-ul:");
             Site site = new ProxySite();
             site.connectTo("https://altex.ro/telefoane/cpl");
