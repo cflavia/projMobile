@@ -15,6 +15,11 @@ public class BaseProdus implements Produs {
     }
 
     @Override
+    public int getPret() {
+        return 0;
+    }
+
+    @Override
     public void accept(Visitor visitor) {
 
     }

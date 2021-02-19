@@ -4,11 +4,23 @@ public class Incarcator extends Accesoriu {
 
     private String name;
     private String type;
+    private int pret;
 
-    public Incarcator(String name, String type) {
+    @Override
+    public int getPret() {
+        return pret;
+    }
+
+    @Override
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
+
+    public Incarcator(String name, String type, int pret) {
         super();
         this.name=name;
         this.type=type;
+        this.pret=pret;
     }
     public void accept(Visitor visitor) {
         visitor.visit(this);
@@ -37,7 +49,7 @@ public class Incarcator extends Accesoriu {
                 '}';
     }
     public void print(){
-        System.out.println(getName()+" "+getType());
+        System.out.println(getName()+" "+getType()+" "+getPret());
     }
 
 }

@@ -4,6 +4,17 @@ public class Casti extends Accesoriu {
 
     private int id;
     private String name;
+    private int pret;
+
+    @Override
+    public int getPret() {
+        return pret;
+    }
+
+    @Override
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
 
     @Override
     public int getId() {
@@ -16,16 +27,17 @@ public class Casti extends Accesoriu {
 
     private String type;
 
-    public Casti(String name, String type) {
+    public Casti(String name, String type, int pret) {
         super();
         this.name=name;
         this.type=type;
+        this.pret=pret;
     }
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
     public void print(){
-        System.out.println(getName()+" "+getType());
+        System.out.println(getName()+" "+getType()+" "+getPret());
     }
     public String getType() {
         return type;

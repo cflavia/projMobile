@@ -9,7 +9,15 @@ import javax.persistence.Id;
 public abstract class Accesoriu implements Produs {
     private String name;
     private int id;
+    private int pret;
 
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
+
+    public int getPret(){
+        return pret;
+    };
     public String getName() {
         return name;
     }
@@ -18,8 +26,9 @@ public abstract class Accesoriu implements Produs {
         this.name = name;
     }
 
-    public Accesoriu(String name){
+    public Accesoriu(String name, int pret){
         this.name=name;
+        this.pret=pret;
     }
 
     public Accesoriu() {

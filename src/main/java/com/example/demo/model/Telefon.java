@@ -17,12 +17,14 @@ public class Telefon extends ImportData implements Produs {
     private String marca;
     @Column(name = "capacitate_produs")
     private String capacitate;
+    private int pret;
     public Telefon(@JsonProperty("id") int id,
                    @JsonProperty("name") String name,
                    @JsonProperty("marca") String marca,
                    @JsonProperty("capacitate") String capacitate,
                    @JsonProperty("camera") String camera,
-                   @JsonProperty("accesorii") String accesorii
+                   @JsonProperty("accesorii") String accesorii,
+                   int pret
     ) {
         this.id = id;
         this.name = name;
@@ -30,6 +32,7 @@ public class Telefon extends ImportData implements Produs {
         this.camera=camera;
         this.capacitate=capacitate;
         this.accesorii=accesorii;
+        this.pret=pret;
     }
 
     public void setId(int id) {
@@ -39,6 +42,8 @@ public class Telefon extends ImportData implements Produs {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setPret(int pret){this.pret=pret;}
 
     public void setMarca(String marca) {
         this.marca = marca;
@@ -91,7 +96,11 @@ public class Telefon extends ImportData implements Produs {
 
     @Override
     public void print() {
-        System.out.println(getName()+" "+getMarca()+" "+getCapacitate()+" "+getCamera());
+        System.out.println(getName()+" "+getMarca()+" "+getCapacitate()+" "+getCamera()+" "+getPret());
+    }
+
+    public int getPret() {
+        return pret;
     }
 
     @Override

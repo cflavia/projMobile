@@ -11,7 +11,7 @@ public class A71 extends Samsung implements Observable {
     private String camera;
     private String capacitate;
     String nume="A71";
-    private int oldId;
+    private int old;
 
     @Override
     public String getCamera() {
@@ -37,12 +37,12 @@ public class A71 extends Samsung implements Observable {
         return nume;
     }
 
-    public int getOldId() {
-        return oldId;
+    public int getOld() {
+        return old;
     }
 
-    public void setOldId(int oldId) {
-        this.oldId = oldId;
+    public void setOldId(int old) {
+        this.old = old;
     }
 
     public ArrayList<Observer> getObserverList() {
@@ -65,10 +65,11 @@ public class A71 extends Samsung implements Observable {
     private String marca=getMarca();
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public A71(int id, String capacitate, String camera) {
+    public A71(int id, String capacitate, String camera, int pret) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
+        this.pret=pret;
     }
 
     public A71() {
@@ -79,9 +80,20 @@ public class A71 extends Samsung implements Observable {
     public void addAccesorii(Accesoriu accesoriu){
         this.accesoriu.add(accesoriu);
     }
+    private int pret;
+
+    @Override
+    public int getPret() {
+        return pret;
+    }
+
+    @Override
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
 
     public void print(){
-        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera()+" "+this.getPret());
         printAccesorii();
     }
 
@@ -112,8 +124,8 @@ public class A71 extends Samsung implements Observable {
         v.visit(this);
     }
     public void setNewValue(int newValue) {
-        this.oldId=this.id;
-        this.id=newValue;
+        this.old=this.pret;
+        this.pret=newValue;
         notifyObservers();
     }
 
@@ -133,7 +145,7 @@ public class A71 extends Samsung implements Observable {
 
     public void notifyObservers() {
         for(Observer i:observerList){
-            i.update(oldId,id);
+            i.update(old,pret);
         }
     }
 }

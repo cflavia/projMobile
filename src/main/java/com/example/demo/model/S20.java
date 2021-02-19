@@ -10,7 +10,7 @@ public class S20 extends Samsung implements Observable {
     private int id;
     private String camera;
     private String capacitate;
-    private int oldId;
+    private int old;
 
     public String getNume() {
         return nume;
@@ -41,12 +41,12 @@ public class S20 extends Samsung implements Observable {
         this.capacitate = capacitate;
     }
 
-    public int getOldId() {
-        return oldId;
+    public int getOld() {
+        return old;
     }
 
-    public void setOldId(int oldId) {
-        this.oldId = oldId;
+    public void setOld(int old) {
+        this.old = old;
     }
 
     public ArrayList<Observer> getObserverList() {
@@ -64,11 +64,23 @@ public class S20 extends Samsung implements Observable {
     public void setAccesoriu(List<Accesoriu> accesoriu) {
         this.accesoriu = accesoriu;
     }
+    private int pret;
 
-    public S20(int id, String capacitate, String camera) {
+    @Override
+    public int getPret() {
+        return pret;
+    }
+
+    @Override
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
+
+    public S20(int id, String capacitate, String camera, int pret) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
+        this.pret=pret;
     }
 
     public void addAccesorii(Accesoriu accesoriu){
@@ -76,7 +88,7 @@ public class S20 extends Samsung implements Observable {
     }
 
     public void print(){
-        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera()+" "+this.getPret());
         printAccesorii();
     }
 
@@ -108,8 +120,8 @@ public class S20 extends Samsung implements Observable {
     }
 
     public void setNewValue(int newValue) {
-        this.oldId=this.id;
-        this.id=newValue;
+        this.old=this.pret;
+        this.pret=newValue;
         notifyObservers();
     }
 
@@ -129,7 +141,7 @@ public class S20 extends Samsung implements Observable {
 
     public void notifyObservers() {
         for(Observer i:observerList){
-            i.update(oldId,id);
+            i.update(old,pret);
         }
     }
 

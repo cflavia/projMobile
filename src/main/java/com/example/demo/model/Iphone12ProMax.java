@@ -37,13 +37,13 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
     }
 
     @Override
-    public int getOldId() {
-        return oldId;
+    public int getOld() {
+        return old;
     }
 
     @Override
-    public void setOldId(int oldId) {
-        this.oldId = oldId;
+    public void setOld(int old) {
+        this.old = old;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
     private String camera;
     private String capacitate;
     private String nume="Iphone12ProMax";
-    private int oldId;
+    private int old;
     private ArrayList<Observer> observerList=new ArrayList<>();
     Capacitate c;
 
@@ -78,11 +78,23 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
 
 
     private List<Accesoriu> accesoriu =new ArrayList<>();
+    private int pret;
 
-    public Iphone12ProMax(int id, String capacitate,String camera) {
+    @Override
+    public int getPret() {
+        return pret;
+    }
+
+    @Override
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
+
+    public Iphone12ProMax(int id, String capacitate, String camera, int pret) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
+        this.pret=pret;
     }
 
     public void addAccesorii(Accesoriu accesoriu){
@@ -90,7 +102,7 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
     }
 
     public void print(){
-        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera()+" "+this.getPret());
         if(c!=null) {
             c.capacitate(this.capacitate);
         }
@@ -125,8 +137,8 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
     }
 
     public void setNewValue(int newValue) {
-        this.oldId=this.id;
-        this.id=newValue;
+        this.old=this.pret;
+        this.pret=newValue;
         notifyObservers();
     }
 
@@ -146,7 +158,7 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
 
     public void notifyObservers() {
         for(Observer i:observerList){
-            i.update(oldId,id);
+            i.update(old,pret);
         }
     }
 }

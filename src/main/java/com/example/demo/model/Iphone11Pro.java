@@ -40,13 +40,13 @@ public class Iphone11Pro extends Iphone11 implements Observable {
     }
 
     @Override
-    public int getOldId() {
-        return oldId;
+    public int getOld() {
+        return old;
     }
 
     @Override
-    public void setOldId(int oldId) {
-        this.oldId = oldId;
+    public void setOld(int old) {
+        this.old = old;
     }
 
     @Override
@@ -63,7 +63,8 @@ public class Iphone11Pro extends Iphone11 implements Observable {
     private String camera;
     private String nume="Iphone11Pro";
     private String capacitate;
-    private int oldId;
+    private int old;
+    private int pret;
     private ArrayList<Observer> observerList=new ArrayList<>();
 
     private String marca=getMarca();
@@ -71,10 +72,11 @@ public class Iphone11Pro extends Iphone11 implements Observable {
 
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public Iphone11Pro(int id, String capacitate,String camera) {
+    public Iphone11Pro(int id, String capacitate,String camera,int pret) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
+        this.pret=pret;
     }
 
     public void addAccesorii(Accesoriu accesoriu){
@@ -85,8 +87,19 @@ public class Iphone11Pro extends Iphone11 implements Observable {
     public void setCapacitatePos(Capacitate c){
         this.c=c;
     }
+
+    @Override
+    public int getPret() {
+        return pret;
+    }
+
+    @Override
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
+
     public void print(){
-        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera()+" "+this.getPret());
         if(c!=null) {
             c.capacitate(this.capacitate);
         }
@@ -120,8 +133,8 @@ public class Iphone11Pro extends Iphone11 implements Observable {
         v.visit(this);
     }
     public void setNewValue(int newValue) {
-        this.oldId=this.id;
-        this.id=newValue;
+        this.old=this.pret;
+        this.pret=newValue;
         notifyObservers();
     }
 
@@ -140,7 +153,7 @@ public class Iphone11Pro extends Iphone11 implements Observable {
 
     public void notifyObservers() {
         for(Observer i:observerList){
-            i.update(oldId,id);
+            i.update(old,pret);
         }
     }
 

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class Photo extends PhotoLoaderFactory implements Observable {
+public class Photo extends PhotoLoaderFactory {
     private String photo;
     private String oldPhoto;
     private ArrayList<Observer> observerList=new ArrayList<>();
@@ -31,23 +31,5 @@ public class Photo extends PhotoLoaderFactory implements Observable {
     public void setNewValue(String newValue) {
         oldPhoto=photo;
         this.photo=newValue;
-    }
-
-    @Override
-    public void addObserver(Observer obs) {
-        observerList.add(obs);
-        notifyObservers();
-    }
-
-    @Override
-    public void removeObserver(Observer obs) {
-        observerList.remove(obs);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for(Observer i:observerList){
-            i.update(oldPhoto,photo);
-        }
     }
 }

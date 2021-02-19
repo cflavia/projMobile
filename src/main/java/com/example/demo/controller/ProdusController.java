@@ -42,7 +42,6 @@ public class ProdusController extends ImportData {
     @GetMapping(path = "{id}")
     public String getProdusById(@PathVariable("id") int id) throws Exception {
         try {
-
             return getIdProdus(id);
         }catch (Exception e){
             System.out.println(e);

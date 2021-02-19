@@ -37,7 +37,11 @@ public class Person {
         return name;
     }
     public void cumpara(List<Produs> produs){
-        for(Produs i:produs)
+        int sum=0;
+        for(Produs i:produs){
             i.print();
+            sum+=i.getPret();
+        }
+        System.out.println("Suma total cheltuita: "+sum);
     }
 }

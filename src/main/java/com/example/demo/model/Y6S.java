@@ -38,12 +38,12 @@ public class Y6S extends Huawei implements Observable {
         this.capacitate = capacitate;
     }
 
-    public int getOldId() {
-        return oldId;
+    public int getOld() {
+        return old;
     }
 
-    public void setOldId(int oldId) {
-        this.oldId = oldId;
+    public void setOld(int old) {
+        this.old = old;
     }
 
     public ArrayList<Observer> getObserverList() {
@@ -55,7 +55,7 @@ public class Y6S extends Huawei implements Observable {
     }
 
     private String capacitate;
-    private int oldId;
+    private int old;
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
     private List<Accesoriu> accesoriu =new ArrayList<>();
@@ -65,18 +65,30 @@ public class Y6S extends Huawei implements Observable {
         return nume;
     }
 
-    public Y6S(int id, String capacitate, String  camera) {
+    public Y6S(int id, String capacitate, String  camera, int pret) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
+        this.pret=pret;
     }
 
     public void addAccesorii(Accesoriu accesoriu){
         this.accesoriu.add(accesoriu);
     }
+    private int pret;
+
+    @Override
+    public int getPret() {
+        return pret;
+    }
+
+    @Override
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
 
     public void print(){
-        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera()+" "+this.getPret());
         printAccesorii();
     }
 
@@ -108,8 +120,8 @@ public class Y6S extends Huawei implements Observable {
     }
 
     public void setNewValue(int newValue) {
-        this.oldId=this.id;
-        this.id=newValue;
+        this.old=this.pret;
+        this.pret=newValue;
         notifyObservers();
     }
 
@@ -129,7 +141,7 @@ public class Y6S extends Huawei implements Observable {
 
     public void notifyObservers() {
         for(Observer i:observerList){
-            i.update(oldId,id);
+            i.update(old,pret);
         }
     }
 }

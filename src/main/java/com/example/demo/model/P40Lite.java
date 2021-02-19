@@ -8,7 +8,7 @@ public class P40Lite extends P40{
     private int id;
     private String camera;
     private String capacitate;
-    private int oldId;
+    private int old;
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
     private List<Accesoriu> accesoriu =new ArrayList<>();
@@ -40,13 +40,13 @@ public class P40Lite extends P40{
         this.capacitate = capacitate;
     }
 
-    public int getOldId() {
-        return oldId;
+    public int getOld() {
+        return old;
     }
 
     @Override
-    public void setOldId(int oldId) {
-        this.oldId = oldId;
+    public void setOld(int old) {
+        this.old = old;
     }
 
     public ArrayList<Observer> getObserverList() {
@@ -67,19 +67,31 @@ public class P40Lite extends P40{
         this.accesoriu = accesoriu;
     }
 
-    public P40Lite(int id, String capacitate, String camera) {
+    public P40Lite(int id, String capacitate, String camera, int pret) {
         super();
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
+        this.pret=pret;
     }
 
     public void addAccesorii(Accesoriu accesoriu){
         this.accesoriu.add(accesoriu);
     }
+    private int pret;
+
+    @Override
+    public int getPret() {
+        return pret;
+    }
+
+    @Override
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
 
     public void print(){
-        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera()+" "+this.getPret());
         printAccesorii();
     }
 
@@ -112,8 +124,8 @@ public class P40Lite extends P40{
     }
 
     public void setNewValue(int newValue) {
-        this.oldId=this.id;
-        this.id=newValue;
+        this.old=this.pret;
+        this.pret=newValue;
         notifyObservers();
     }
     public void addObserver(Observer obs) {
@@ -127,7 +139,7 @@ public class P40Lite extends P40{
 
     public void notifyObservers() {
         for(Observer i:observerList){
-            i.update(oldId,id);
+            i.update(old,pret);
         }
     }
 }

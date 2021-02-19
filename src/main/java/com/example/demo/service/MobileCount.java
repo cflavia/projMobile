@@ -20,7 +20,6 @@ public class MobileCount implements Visitor {
     int Casti=0;
     int Incarcator=0;
     private int Accesoriu=0;
-
     @Override
     public void visit(IphoneX i) {
         iphoneX++;

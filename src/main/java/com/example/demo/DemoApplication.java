@@ -27,26 +27,30 @@ public class DemoApplication extends ImportData {
             connect();
             SpringApplication.run(DemoApplication.class, args);
             Person p=new Person(1,"Mara");
-            System.out.println("Persoana: " + p.getName()+ " a accesat site-ul:");
+            System.out.println("* Persoana: " + p.getName()+ " a accesat site-ul:");
             Site site = new ProxySite();
             site.connectTo("https://altex.ro/telefoane/cpl");
             MobileCount nr=new MobileCount();
             CosCumparaturi cosCumparaturi=new CosCumparaturi();
-            List<Produs>list=new ArrayList<>();
-            Telefon i=new S20(1,"32GB","12");
-            list.add(i);
-            cosCumparaturi.addContent(i);
-            System.out.println("Vrea sa cumpere produsele: ");
-            Accesoriu a1=new Casti("casti","Android");
+            List<Produs>listcumparate=new ArrayList<>();
+            String[] parts = getIdProdus(4).split(" ");
+            Telefon s20=new S20(Integer.valueOf(parts[0]),parts[3],parts[4],4000);
+            cosCumparaturi.addContent(s20);
+            Accesoriu a1=new Casti("casti","Iphone",800);
             cosCumparaturi.addContent(a1);
-            cosCumparaturi.print();
+            listcumparate.add(a1);
             a1.accept(nr);
-            i.accept(nr);
-            String[] parts = getIdProdus(3).split(" ");
-            Telefon i1=new Telefon(Integer.valueOf(parts[0]),parts[1],parts[2],parts[3],parts[4],parts[5]);
-            list.add(i1);
-            p.cumpara(list);
-            File file = new File("output.jpg");
+            s20.accept(nr);
+            String[] parts1 = getIdProdus(3).split(" ");
+            IphoneX ix=new IphoneX(Integer.valueOf(parts1[0]),parts1[3],parts1[4],4200);
+            ix.accept(nr);
+            listcumparate.add(ix);
+            cosCumparaturi.addContent(ix);
+            System.out.println("\n* A adaugat in cosul de cumparaturi produsele: ");
+            cosCumparaturi.print();
+            System.out.println("\n* A cumparat produsele: ");
+            p.cumpara(listcumparate);
+           /* File file = new File("output.jpg");
             BufferedImage image = null;
             try
             {
@@ -56,36 +60,43 @@ public class DemoApplication extends ImportData {
             catch (IOException e)
             {
                 e.printStackTrace();
-            }
+            }*/
           //  Photo photo=new Photo("output.jpg");
           //  photo.print();
-            Iphone11Pro i11=new Iphone11Pro(5,"256GB","12");
-            if (i11.getCapacitate().contains("128GB")) {
-                i11.setCapacitatePos(new MiddleCapacitate());
+            System.out.println("\n* Caracteristici telefon cumparat: ");
+            if (ix.getCapacitate().contains("128GB")) {
+                ix.setCapacitatePos(new MiddleCapacitate());
             }else
             {
-                if(i11.getCapacitate().contains("256GB") || i11.getCapacitate().contains("512GB"))
-                    i11.setCapacitatePos(new HighCapacitate());
+                if(ix.getCapacitate().contains("256GB") || ix.getCapacitate().contains("512GB"))
+                    ix.setCapacitatePos(new HighCapacitate());
                 else
-                    i11.setCapacitatePos(new LowCapacitate());
+                    ix.setCapacitatePos(new LowCapacitate());
             }
-            System.out.println(i11.getCapacitate());
-            i11.addAccesorii(new Casti("casti","Iphone"));
-            i11.addAccesorii(new Incarcator("incarcator","Iphone"));
-            i11.print();
+            System.out.println(ix.getCapacitate());
+            Accesoriu a2=new Incarcator("incarcator","Iphone",100);
+            a2.accept(nr);
+            ix.addAccesorii(a1);
+            ix.print();
+            System.out.println("\n* Schimbare pret produs: ");
             FirstObserver firstObserver = new FirstObserver();
             SecondObserver secondObserver = new SecondObserver();
-            i11.addObserver(firstObserver);
-            i11.addObserver(secondObserver);
-            i11.setNewValue("11");
-            Iphone12 i12=new Iphone12(6,"256GB","16");
-            Iphone12 i121=new Iphone12(7,"516GB","16");
-            i12.addAccesorii(new Incarcator("incarcator","IPhone"));
+            ix.addObserver(firstObserver);
+            ix.addObserver(secondObserver);
+            ix.setNewValue(3900);
+
+            System.out.println("\n* Mai vizualizeaza si produsele: ");
+            Iphone12 i121=new Iphone12(7,"516GB","16",5200);
+            Iphone12 i12=new Iphone12(6,"256GB","16",4800);
+            i12.addAccesorii(a2);
             ManagerDoc.getInstance().setMobile(i12);
             ManagerDoc.getMobile().print();
+            System.out.println("");
+            ManagerDoc.getInstance().setMobile(i121);
+            ManagerDoc.getMobile().print();
             i12.accept(nr);
-            i11.accept(nr);
             i121.accept(nr);
+            System.out.println("\n* Obiecte vizualizate: ");
             nr.printCount();
         }
         catch (Exception e)

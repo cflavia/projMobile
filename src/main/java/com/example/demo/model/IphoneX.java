@@ -13,7 +13,7 @@ public class IphoneX extends Iphone implements Observable {
     private int id;
     private String camera;
     private String capacitate;
-    private int oldId;
+    private int old;
     private String nume="IphoneX";
 
     public String getNume() {
@@ -32,10 +32,11 @@ public class IphoneX extends Iphone implements Observable {
     private String marca=getMarca();
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public IphoneX(int id, String capacitate, String camera) {
+    public IphoneX(int id, String capacitate, String camera, int pret) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
+        this.pret=pret;
     }
 
     public void addAccesorii(Accesoriu accesoriu){
@@ -62,12 +63,12 @@ public class IphoneX extends Iphone implements Observable {
         this.capacitate = capacitate;
     }
 
-    public int getOldId() {
-        return oldId;
+    public int getOld() {
+        return old;
     }
 
-    public void setOldId(int oldId) {
-        this.oldId = oldId;
+    public void setOld(int old) {
+        this.old = old;
     }
 
     public ArrayList<Observer> getObserverList() {
@@ -77,9 +78,19 @@ public class IphoneX extends Iphone implements Observable {
     public void setObserverList(ArrayList<Observer> observerList) {
         this.observerList = observerList;
     }
+    private int pret;
+
+    @Override
+    public int getPret() {
+        return pret;
+    }
+
+    public void setPret(int pret) {
+        this.pret = pret;
+    }
 
     public void print(){
-        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera()+" "+this.getPret());
         if(c!=null) {
             c.capacitate(this.capacitate);
         }
@@ -115,8 +126,8 @@ public class IphoneX extends Iphone implements Observable {
     }
 
     public void setNewValue(int newValue) {
-        this.oldId=this.id;
-        this.id=newValue;
+        this.old=this.pret;
+        this.pret=newValue;
         notifyObservers();
     }
 
@@ -136,7 +147,7 @@ public class IphoneX extends Iphone implements Observable {
 
     public void notifyObservers() {
         for(Observer i:observerList){
-            i.update(oldId,id);
+            i.update(old,pret);
         }
     }
 
