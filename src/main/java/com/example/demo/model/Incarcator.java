@@ -10,7 +10,9 @@ public class Incarcator extends Accesoriu {
         this.name=name;
         this.type=type;
     }
-
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
     public String getType() {
         return type;
     }
@@ -33,6 +35,9 @@ public class Incarcator extends Accesoriu {
                 "type='" + type + '\'' +
                 "name='" + name + '\'' +
                 '}';
+    }
+    public void print(){
+        System.out.println(getName()+" "+getType());
     }
 
 }

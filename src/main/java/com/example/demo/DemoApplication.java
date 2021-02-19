@@ -24,19 +24,26 @@ public class DemoApplication extends ImportData {
     public static void main(String[] args)throws Exception {
         try
         {
+            connect();
             SpringApplication.run(DemoApplication.class, args);
+            Person p=new Person(1,"Mara");
+            System.out.println("Persoana: " + p.getName()+ " a accesat site-ul:");
             Site site = new ProxySite();
             site.connectTo("https://altex.ro/telefoane/cpl");
-            connect();
-            createTablePerson();
-            createTableProdus();
             MobileCount nr=new MobileCount();
-            Person p=new Person(1,"Mara");
-            List<Telefon>list=new ArrayList<>();
-            Telefon i=new Telefon(1,"Iphone11","Iphone","128GB","12","incarcator, casti","-");
+            CosCumparaturi cosCumparaturi=new CosCumparaturi();
+            List<Produs>list=new ArrayList<>();
+            Telefon i=new S20(1,"32GB","12");
             list.add(i);
+            cosCumparaturi.addContent(i);
+            System.out.println("Vrea sa cumpere produsele: ");
+            Accesoriu a1=new Casti("casti","Android");
+            cosCumparaturi.addContent(a1);
+            cosCumparaturi.print();
+            a1.accept(nr);
+            i.accept(nr);
             String[] parts = getIdProdus(3).split(" ");
-            Telefon i1=new Telefon(Integer.valueOf(parts[0]),parts[1],parts[2],parts[3],parts[4],parts[5],parts[6]);
+            Telefon i1=new Telefon(Integer.valueOf(parts[0]),parts[1],parts[2],parts[3],parts[4],parts[5]);
             list.add(i1);
             p.cumpara(list);
             File file = new File("output.jpg");
@@ -50,8 +57,8 @@ public class DemoApplication extends ImportData {
             {
                 e.printStackTrace();
             }
-           /* Photo photo=new Photo("output.jpg");
-            photo.print();*/
+          //  Photo photo=new Photo("output.jpg");
+          //  photo.print();
             Iphone11Pro i11=new Iphone11Pro(5,"256GB","12");
             if (i11.getCapacitate().contains("128GB")) {
                 i11.setCapacitatePos(new MiddleCapacitate());
@@ -63,8 +70,8 @@ public class DemoApplication extends ImportData {
                     i11.setCapacitatePos(new LowCapacitate());
             }
             System.out.println(i11.getCapacitate());
-            i11.addAccesorii(new Accesoriu("casti"));
-            i11.addAccesorii(new Accesoriu("incarcator"));
+            i11.addAccesorii(new Casti("casti","Iphone"));
+            i11.addAccesorii(new Incarcator("incarcator","Iphone"));
             i11.print();
             FirstObserver firstObserver = new FirstObserver();
             SecondObserver secondObserver = new SecondObserver();
@@ -73,7 +80,7 @@ public class DemoApplication extends ImportData {
             i11.setNewValue("11");
             Iphone12 i12=new Iphone12(6,"256GB","16");
             Iphone12 i121=new Iphone12(7,"516GB","16");
-            i12.addAccesorii(new Accesoriu("incarcator"));
+            i12.addAccesorii(new Incarcator("incarcator","IPhone"));
             ManagerDoc.getInstance().setMobile(i12);
             ManagerDoc.getMobile().print();
             i12.accept(nr);

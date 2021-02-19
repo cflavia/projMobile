@@ -17,6 +17,10 @@ public class MobileCount implements Visitor {
     int A71=0;
     int M21=0;
     int Piese=0;
+    int Casti=0;
+    int Incarcator=0;
+    private int Accesoriu=0;
+
     @Override
     public void visit(IphoneX i) {
         iphoneX++;
@@ -82,6 +86,21 @@ public class MobileCount implements Visitor {
         Piese++;
     }
 
+    @Override
+    public void visit(Accesoriu accesoriu) {
+        Accesoriu++;
+    }
+
+    @Override
+    public void visit(Casti casti) {
+        Casti++;
+    }
+
+    @Override
+    public void visit(Incarcator incarcator) {
+        Incarcator++;
+    }
+
 
     public void printCount(){
         System.out.println(
@@ -96,6 +115,8 @@ public class MobileCount implements Visitor {
                         +"\nM21: "+ M21
                 +"\nP40: "+P40
                         +"\nP40Lite"+P40Lite+
-                "\nY6S: "+Y6S);
+                "\nY6S: "+Y6S+
+                "\nCasti: "+Casti+
+                "\nIncarcator: "+Incarcator);
     }
 }

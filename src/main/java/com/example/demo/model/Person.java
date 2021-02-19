@@ -36,8 +36,8 @@ public class Person {
     public String getName() {
         return name;
     }
-    public void cumpara(List<Telefon> produs){
-        for(Telefon i:produs)
-            System.out.println(i.getId()+" "+i.getName()+" "+i.getMarca()+" "+i.getCapacitate()+" "+i.getCamera()+" "+i.getContinut()+" "+i.getAccesoriiTel());
+    public void cumpara(List<Produs> produs){
+        for(Produs i:produs)
+            i.print();
     }
 }

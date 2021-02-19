@@ -23,7 +23,7 @@ public class ProdusController extends ImportData {
     @PostMapping
     public void addProdus(@Valid @NonNull @RequestBody Telefon produs) throws Exception {
         try {
-            postProd(produs.getName(), produs.getMarca(), produs.getCapacitate(), produs.getCamera(), produs.getContinut(), produs.getAccesoriiTel());
+            postProd(produs.getName(), produs.getMarca(), produs.getCapacitate(), produs.getCamera(), produs.getAccesoriiTel());
         }catch (Exception e){
             System.out.println(e);
         }
@@ -62,7 +62,7 @@ public class ProdusController extends ImportData {
     @PutMapping(path = "{id}")
     public void updateProdus(@PathVariable("id") int id,@RequestBody Telefon produsUpdate) throws Exception {
         try {
-            updateProdus(id, produsUpdate.getName(), produsUpdate.getMarca(), produsUpdate.getCapacitate(), produsUpdate.getCamera(), produsUpdate.getContinut(), produsUpdate.getAccesoriiTel());
+            updateProdus(id, produsUpdate.getName(), produsUpdate.getMarca(), produsUpdate.getCapacitate(), produsUpdate.getCamera(), produsUpdate.getAccesoriiTel());
         }
         catch (Exception e){
             System.out.println(e);

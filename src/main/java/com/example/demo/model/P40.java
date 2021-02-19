@@ -60,7 +60,7 @@ public class P40 extends Huawei implements Observable {
     }
 
     public void print(){
-        System.out.println("Telefon P40: ");
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
         printAccesorii();
     }
 
@@ -82,6 +82,7 @@ public class P40 extends Huawei implements Observable {
     }
 
     public void printAccesorii(){
+
         for (Accesoriu i: accesoriu){
             i.print();
         }

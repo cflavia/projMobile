@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ProdusAccess extends ImportData implements ProdusDAO {
     public int insertProdus(int id, Telefon produs) {
         try {
-            postProd(produs.getName(),produs.getMarca(),produs.getCapacitate(), produs.getCamera(), produs.getContinut(), produs.getAccesoriiTel());
+            postProd(produs.getName(),produs.getMarca(),produs.getCapacitate(), produs.getCamera(), produs.getAccesoriiTel());
         }catch (Exception e){
             System.out.println(e);
         }
@@ -38,7 +38,7 @@ public class ProdusAccess extends ImportData implements ProdusDAO {
 
     @Override
     public int updateProdusById(int id, Telefon produs) throws Exception {
-       updateProdus(id,produs.getName(),produs.getMarca(),produs.getCapacitate(), produs.getCamera(), produs.getContinut(), produs.getAccesoriiTel());
+       updateProdus(id,produs.getName(),produs.getMarca(),produs.getCapacitate(), produs.getCamera(), produs.getAccesoriiTel());
         return 0;
     }
 }

@@ -15,4 +15,7 @@ public interface Visitor {
     void visit(M21 m21);
     void visit(S20 s20);
     void visit(CosCumparaturi piese);
+    void visit(Accesoriu accesoriu);
+    void visit(Casti casti);
+    void visit(Incarcator incarcator);
 }

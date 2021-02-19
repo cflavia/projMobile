@@ -1,10 +1,12 @@
 package com.example.demo.model;
 
+import com.example.demo.service.Observable;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Accesoriu extends Object {
+public abstract class Accesoriu implements Produs {
     private String name;
     private int id;
 
@@ -28,13 +30,26 @@ public class Accesoriu extends Object {
         System.out.println("Accesoriul: "+this.name);
     }
 
+    @Override
+    public void accept(Visitor visitor) {
+    }
+
+    @Override
+    public void setNewValue(int newValue) {
+    }
+
+    @Override
+    public void setNewValue(String newValue) {
+
+    }
+
 
     public void setId(int id) {
         this.id = id;
     }
-
     @Id
     public int getId() {
         return id;
     }
+
 }

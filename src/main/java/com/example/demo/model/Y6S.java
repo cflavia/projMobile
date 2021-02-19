@@ -76,7 +76,7 @@ public class Y6S extends Huawei implements Observable {
     }
 
     public void print(){
-        System.out.println("Telefon Y6S: ");
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
         printAccesorii();
     }
 

@@ -81,7 +81,7 @@ public class A71 extends Samsung implements Observable {
     }
 
     public void print(){
-        System.out.println("Telefon M21: ");
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
         printAccesorii();
     }
 

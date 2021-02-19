@@ -76,7 +76,7 @@ public class S20 extends Samsung implements Observable {
     }
 
     public void print(){
-        System.out.println("Telefon S20: ");
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
         printAccesorii();
     }
 

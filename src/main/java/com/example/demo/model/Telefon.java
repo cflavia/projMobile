@@ -22,7 +22,6 @@ public class Telefon extends ImportData implements Produs {
                    @JsonProperty("marca") String marca,
                    @JsonProperty("capacitate") String capacitate,
                    @JsonProperty("camera") String camera,
-                   @JsonProperty("continut") String continut,
                    @JsonProperty("accesorii") String accesorii
     ) {
         this.id = id;
@@ -30,7 +29,6 @@ public class Telefon extends ImportData implements Produs {
         this.marca=marca;
         this.camera=camera;
         this.capacitate=capacitate;
-        this.continut=continut;
         this.accesorii=accesorii;
     }
 
@@ -54,18 +52,12 @@ public class Telefon extends ImportData implements Produs {
         this.camera = camera;
     }
 
-    public void setContinut(String continut) {
-        this.continut = continut;
-    }
-
     public void setAccesorii(String accesorii) {
         this.accesorii = accesorii;
     }
 
     @Column(name = "camera_produs")
     private String camera;
-    @Column(name = "continut_produs")
-    private String continut;
     @Column(name = "accesorii_produs")
     private String accesorii;
     public int getId() {
@@ -81,10 +73,6 @@ public class Telefon extends ImportData implements Produs {
 
     public String getCamera() {
         return camera;
-    }
-
-    public String getContinut() {
-        return continut;
     }
 
 
@@ -103,7 +91,7 @@ public class Telefon extends ImportData implements Produs {
 
     @Override
     public void print() {
-
+        System.out.println(getName()+" "+getMarca()+" "+getCapacitate()+" "+getCamera());
     }
 
     @Override

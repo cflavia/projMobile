@@ -86,7 +86,7 @@ public class Iphone11Pro extends Iphone11 implements Observable {
         this.c=c;
     }
     public void print(){
-        System.out.println("Telefon Iphone 11 Pro: ");
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
         if(c!=null) {
             c.capacitate(this.capacitate);
         }

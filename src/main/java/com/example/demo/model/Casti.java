@@ -2,7 +2,18 @@ package com.example.demo.model;
 
 public class Casti extends Accesoriu {
 
+    private int id;
     private String name;
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String type;
 
     public Casti(String name, String type) {
@@ -10,7 +21,12 @@ public class Casti extends Accesoriu {
         this.name=name;
         this.type=type;
     }
-
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+    public void print(){
+        System.out.println(getName()+" "+getType());
+    }
     public String getType() {
         return type;
     }

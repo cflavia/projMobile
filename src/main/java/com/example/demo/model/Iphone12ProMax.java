@@ -90,7 +90,7 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
     }
 
     public void print(){
-        System.out.println("Telefon Iphone 12 ProMax: ");
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
         if(c!=null) {
             c.capacitate(this.capacitate);
         }

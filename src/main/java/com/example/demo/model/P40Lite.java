@@ -79,7 +79,7 @@ public class P40Lite extends P40{
     }
 
     public void print(){
-        System.out.println("Telefon P40Lite: ");
+        System.out.println("Telefon "+this.getNume()+" "+this.getMarca()+" "+this.getCapacitate()+" "+this.getCamera());
         printAccesorii();
     }
 

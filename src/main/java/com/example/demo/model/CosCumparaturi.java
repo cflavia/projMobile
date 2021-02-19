@@ -4,16 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CosCumparaturi {
-    private List<Telefon> content = new ArrayList<>();
-
-    public List<Telefon> getContent() {
-        return content;
-    }
-
-    public void setContent(List<Telefon> content) {
-        this.content = content;
-    }
-    public void addContent(Telefon produs){
+    private List<Produs> content = new ArrayList<>();
+    public void addContent(Produs produs){
         content.add(produs);
     }
     public void print(){
