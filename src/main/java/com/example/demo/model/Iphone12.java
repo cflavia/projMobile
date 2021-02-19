@@ -75,12 +75,18 @@ public class Iphone12 extends Iphone implements Observable {
 
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public Iphone12(int id,String nume,String marca, String capacitate,String camera) {
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
+    public Iphone12(int id, String capacitate, String camera) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
-        this.nume=nume;
-        this.marca=marca;
     }
 
     public Iphone12() {

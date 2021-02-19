@@ -8,15 +8,14 @@ import java.util.List;
 
 public class P40 extends Huawei implements Observable {
     private int id;
-    private float camera;
-    private float capacitate;
+    private String camera;
+    private String capacitate;
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
-    private List<Produs> content = new ArrayList<>();
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public P40(int id, float camera, float capacitate) {
+    public P40(int id, String capacitate, String camera) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
@@ -26,9 +25,6 @@ public class P40 extends Huawei implements Observable {
 
     }
 
-    public void addContent(Produs produs){
-        content.add(produs);
-    }
 
     public void addAccesorii(Accesoriu accesoriu){
         this.accesoriu.add(accesoriu);
@@ -37,9 +33,6 @@ public class P40 extends Huawei implements Observable {
     public void print(){
         System.out.println("Telefon P40: ");
         printAccesorii();
-        for(Produs i:content){
-            i.print();
-        }
     }
 
     public void setAccesorii(List<Accesoriu> accesoriu) {
@@ -71,9 +64,6 @@ public class P40 extends Huawei implements Observable {
 
     public void accept(Visitor v) {
         v.visit(this);
-        for (Produs i:content){
-            i.accept(v);
-        }
     }
 
     public void setNewValue(int newValue) {

@@ -77,6 +77,15 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();
     Capacitate c;
+
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
     public void setCapacitatePos(Capacitate c){
         this.c=c;
     }
@@ -85,12 +94,13 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
 
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public Iphone12ProMax(int id,String nume,String marca, String capacitate,String camera) {
+    public Iphone12ProMax(int id,String nume,String marca, String capacitate,String camera, List<Accesoriu>accesoriu) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
         this.nume=nume;
         this.marca=marca;
+        this.accesoriu=accesoriu;
     }
 
     public void addAccesorii(Accesoriu accesoriu){

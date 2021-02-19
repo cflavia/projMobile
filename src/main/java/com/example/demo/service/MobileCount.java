@@ -78,7 +78,7 @@ public class MobileCount implements Visitor {
     }
 
     @Override
-    public void visit(Piese piese) {
+    public void visit(CosCumparaturi piese) {
         Piese++;
     }
 

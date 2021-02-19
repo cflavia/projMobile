@@ -8,15 +8,78 @@ import java.util.List;
 
 public class A71 extends Samsung implements Observable {
     private int id;
-    private float camera;
-    private float capacitate;
+    private String camera;
+    private String capacitate;
+    String nume;
     private int oldId;
+
+    @Override
+    public String getCamera() {
+        return camera;
+    }
+
+    @Override
+    public void setCamera(String camera) {
+        this.camera = camera;
+    }
+
+    @Override
+    public String getCapacitate() {
+        return capacitate;
+    }
+
+    @Override
+    public void setCapacitate(String capacitate) {
+        this.capacitate = capacitate;
+    }
+
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public int getOldId() {
+        return oldId;
+    }
+
+    public void setOldId(int oldId) {
+        this.oldId = oldId;
+    }
+
+    public ArrayList<Observer> getObserverList() {
+        return observerList;
+    }
+
+    public void setObserverList(ArrayList<Observer> observerList) {
+        this.observerList = observerList;
+    }
+
+    @Override
+    public String getMarca() {
+        return marca;
+    }
+
+    @Override
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
-    private List<Produs> content = new ArrayList<>();
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public A71(int id, float camera, float capacitate) {
+    public A71(int id, String capacitate, String camera) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
@@ -26,9 +89,6 @@ public class A71 extends Samsung implements Observable {
 
     }
 
-    public void addContent(Produs produs){
-        content.add(produs);
-    }
 
     public void addAccesorii(Accesoriu accesoriu){
         this.accesoriu.add(accesoriu);
@@ -37,9 +97,6 @@ public class A71 extends Samsung implements Observable {
     public void print(){
         System.out.println("Telefon M21: ");
         printAccesorii();
-        for(Produs i:content){
-            i.print();
-        }
     }
 
     public void setAccesorii(List<Accesoriu> accesoriu) {
@@ -71,9 +128,6 @@ public class A71 extends Samsung implements Observable {
 
     public void accept(Visitor v) {
         v.visit(this);
-        for (Produs i:content){
-            i.accept(v);
-        }
     }
     public void setNewValue(int newValue) {
         this.oldId=this.id;

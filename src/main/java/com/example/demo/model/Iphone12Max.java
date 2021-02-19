@@ -82,12 +82,21 @@ public class Iphone12Max extends Iphone12 implements Observable {
 
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public Iphone12Max(int id,String nume,String marca, String capacitate,String camera) {
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
+    public Iphone12Max(int id, String nume, String marca, String capacitate, String camera, List<Accesoriu>accesoriu) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
         this.nume=nume;
         this.marca=marca;
+        this.accesoriu=accesoriu;
     }
     Capacitate c;
     public void setCapacitatePos(Capacitate c){

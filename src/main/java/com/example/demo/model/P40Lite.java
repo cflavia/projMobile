@@ -6,22 +6,18 @@ import java.util.List;
 
 public class P40Lite extends P40{
     private int id;
-    private float camera;
-    private float capacitate;
+    private String camera;
+    private String capacitate;
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
-    private List<Produs> content = new ArrayList<>();
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public P40Lite(int id, float camera, float capacitate) {
+    public P40Lite(int id, String capacitate, String camera) {
         super();
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
-    }
-    public void addContent(Produs produs){
-        content.add(produs);
     }
 
     public void addAccesorii(Accesoriu accesoriu){
@@ -31,9 +27,6 @@ public class P40Lite extends P40{
     public void print(){
         System.out.println("Telefon P40Lite: ");
         printAccesorii();
-        for(Produs i:content){
-            i.print();
-        }
     }
 
     public void setAccesorii(List<Accesoriu> accesoriu) {
@@ -62,9 +55,6 @@ public class P40Lite extends P40{
 
     public void accept(Visitor v) {
         v.visit(this);
-        for (Produs i:content){
-            i.accept(v);
-        }
     }
 
     public void setNewValue(int newValue) {

@@ -68,15 +68,13 @@ public class Iphone11 extends Iphone implements Observable {
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
-    private List<Piese> content = new ArrayList<>();
+    private List<CosCumparaturi> content = new ArrayList<>();
     private List<Accesoriu> accesoriu =new ArrayList<>();
     private String nume;
-    public Iphone11(int id,String nume,String marca, String capacitate,String camera) {
+    public Iphone11(int id, String capacitate,String camera) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
-        this.nume=nume;
-        this.marca=marca;
     }
 
     public Iphone11() {

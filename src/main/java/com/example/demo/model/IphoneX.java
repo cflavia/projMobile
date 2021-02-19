@@ -14,14 +14,34 @@ public class IphoneX extends Iphone implements Observable {
     private String camera;
     private String capacitate;
     private int oldId;
+    private String nume;
+
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public IphoneX(int id, String camera, String capacitate) {
+    public IphoneX(int id, String nume, String marca, String capacitate, String camera, List<Accesoriu> accesoriu) {
         this.id = id;
+        this.nume=nume;
         this.camera = camera;
         this.capacitate = capacitate;
+        this.accesoriu=accesoriu;
     }
 
     public void addAccesorii(Accesoriu accesoriu){

@@ -52,7 +52,7 @@ public class DemoApplication extends ImportData {
             }
            /* Photo photo=new Photo("output.jpg");
             photo.print();*/
-            Iphone11Pro i11=new Iphone11Pro(5,"Iphone11Pro","Iphone","256GB","12");
+            Iphone11Pro i11=new Iphone11Pro(5,"256GB","12");
             if (i11.getCapacitate().contains("128GB")) {
                 i11.setCapacitatePos(new MiddleCapacitate());
             }else
@@ -71,9 +71,8 @@ public class DemoApplication extends ImportData {
             i11.addObserver(firstObserver);
             i11.addObserver(secondObserver);
             i11.setNewValue("11");
-            //Produs.printCount();
-            Iphone12 i12=new Iphone12(6,"Iphone12","Iphone","256GB","16");
-            Iphone12 i121=new Iphone12(7,"Iphone12","Iphone","516GB","16");
+            Iphone12 i12=new Iphone12(6,"256GB","16");
+            Iphone12 i121=new Iphone12(7,"516GB","16");
             i12.addAccesorii(new Accesoriu("incarcator"));
             ManagerDoc.getInstance().setMobile(i12);
             ManagerDoc.getMobile().print();

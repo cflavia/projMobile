@@ -8,21 +8,17 @@ import java.util.List;
 
 public class S20 extends Samsung implements Observable {
     private int id;
-    private float camera;
-    private float capacitate;
+    private String camera;
+    private String capacitate;
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
-    private List<Produs> content = new ArrayList<>();
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public S20(int id, float camera, float capacitate) {
+    public S20(int id, String capacitate, String camera) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
-    }
-    public void addContent(Produs produs){
-        content.add(produs);
     }
 
     public void addAccesorii(Accesoriu accesoriu){
@@ -32,9 +28,6 @@ public class S20 extends Samsung implements Observable {
     public void print(){
         System.out.println("Telefon S20: ");
         printAccesorii();
-        for(Produs i:content){
-            i.print();
-        }
     }
 
     public void setAccesorii(List<Accesoriu> accesoriu) {
@@ -66,9 +59,6 @@ public class S20 extends Samsung implements Observable {
 
     public void accept(Visitor v) {
         v.visit(this);
-        for (Produs i:content){
-            i.accept(v);
-        }
     }
 
     public void setNewValue(int newValue) {

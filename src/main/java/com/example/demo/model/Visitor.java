@@ -14,5 +14,5 @@ public interface Visitor {
     void visit(A71 a71);
     void visit(M21 m21);
     void visit(S20 s20);
-    void visit(Piese piese);
+    void visit(CosCumparaturi piese);
 }

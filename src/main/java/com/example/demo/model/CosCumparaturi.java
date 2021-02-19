@@ -3,7 +3,7 @@ package com.example.demo.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Piese {
+public class CosCumparaturi {
     private List<Telefon> content = new ArrayList<>();
 
     public List<Telefon> getContent() {
