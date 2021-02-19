@@ -44,22 +44,9 @@ public class Iphone11 extends Iphone implements Observable {
         this.observerList = observerList;
     }
 
-    @Override
-    public String getMarca() {
-        return marca;
-    }
-
-    @Override
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
 
     public String getNume() {
         return nume;
-    }
-
-    public void setNume(String nume) {
-        this.nume = nume;
     }
 
     private int id;
@@ -68,10 +55,18 @@ public class Iphone11 extends Iphone implements Observable {
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
-    private List<CosCumparaturi> content = new ArrayList<>();
     private List<Accesoriu> accesoriu =new ArrayList<>();
-    private String nume;
-    public Iphone11(int id, String capacitate,String camera) {
+    private String nume="Iphone11";
+
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
+    public Iphone11(int id, String capacitate, String camera) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;

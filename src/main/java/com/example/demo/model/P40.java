@@ -15,6 +15,35 @@ public class P40 extends Huawei implements Observable {
     private String marca=getMarca();
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
+    public String getNume() {
+        return nume;
+    }
+
+    String nume="P40";
+
+    @Override
+    public void setCamera(String camera) {
+        this.camera = camera;
+    }
+
+    @Override
+    public void setCapacitate(String capacitate) {
+        this.capacitate = capacitate;
+    }
+
+    public void setOldId(int oldId) {
+        this.oldId = oldId;
+    }
+
+    public void setObserverList(ArrayList<Observer> observerList) {
+        this.observerList = observerList;
+    }
+
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
     public P40(int id, String capacitate, String camera) {
         this.id = id;
         this.camera = camera;
@@ -57,11 +86,6 @@ public class P40 extends Huawei implements Observable {
             i.print();
         }
     }
-
-    public void printAndroid() {
-
-    }
-
     public void accept(Visitor v) {
         v.visit(this);
     }

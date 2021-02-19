@@ -9,13 +9,63 @@ public class Y6S extends Huawei implements Observable {
 
     private int id;
     private String camera;
+
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
+    @Override
+    public String getCamera() {
+        return camera;
+    }
+
+    @Override
+    public void setCamera(String camera) {
+        this.camera = camera;
+    }
+
+    @Override
+    public String getCapacitate() {
+        return capacitate;
+    }
+
+    @Override
+    public void setCapacitate(String capacitate) {
+        this.capacitate = capacitate;
+    }
+
+    public int getOldId() {
+        return oldId;
+    }
+
+    public void setOldId(int oldId) {
+        this.oldId = oldId;
+    }
+
+    public ArrayList<Observer> getObserverList() {
+        return observerList;
+    }
+
+    public void setObserverList(ArrayList<Observer> observerList) {
+        this.observerList = observerList;
+    }
+
     private String capacitate;
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
     private List<Accesoriu> accesoriu =new ArrayList<>();
+    private String nume="Y6S";
 
-    public Y6S(int id, String capacitate,String  camera) {
+    public String getNume() {
+        return nume;
+    }
+
+    public Y6S(int id, String capacitate, String  camera) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
@@ -51,10 +101,6 @@ public class Y6S extends Huawei implements Observable {
         for (Accesoriu i: accesoriu){
             i.print();
         }
-    }
-
-    public void printAndroid() {
-
     }
 
     public void accept(Visitor v) {

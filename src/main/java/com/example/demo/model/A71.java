@@ -10,7 +10,7 @@ public class A71 extends Samsung implements Observable {
     private int id;
     private String camera;
     private String capacitate;
-    String nume;
+    String nume="A71";
     private int oldId;
 
     @Override
@@ -37,10 +37,6 @@ public class A71 extends Samsung implements Observable {
         return nume;
     }
 
-    public void setNume(String nume) {
-        this.nume = nume;
-    }
-
     public int getOldId() {
         return oldId;
     }
@@ -55,16 +51,6 @@ public class A71 extends Samsung implements Observable {
 
     public void setObserverList(ArrayList<Observer> observerList) {
         this.observerList = observerList;
-    }
-
-    @Override
-    public String getMarca() {
-        return marca;
-    }
-
-    @Override
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
     public List<Accesoriu> getAccesoriu() {
@@ -120,10 +106,6 @@ public class A71 extends Samsung implements Observable {
         for (Accesoriu i: accesoriu){
             i.print();
         }
-    }
-
-    public void printAndroid() {
-
     }
 
     public void accept(Visitor v) {

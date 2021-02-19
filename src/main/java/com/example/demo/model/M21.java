@@ -10,20 +10,67 @@ import java.util.List;
 public class M21 extends Samsung implements Observable {
 
     private int id;
-    private float camera;
-    private float capacitate;
+    private String camera;
+
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
+    @Override
+    public String getCamera() {
+        return camera;
+    }
+
+    @Override
+    public void setCamera(String camera) {
+        this.camera = camera;
+    }
+
+    @Override
+    public String getCapacitate() {
+        return capacitate;
+    }
+
+    @Override
+    public void setCapacitate(String capacitate) {
+        this.capacitate = capacitate;
+    }
+
+    public int getOldId() {
+        return oldId;
+    }
+
+    public void setOldId(int oldId) {
+        this.oldId = oldId;
+    }
+
+    public ArrayList<Observer> getObserverList() {
+        return observerList;
+    }
+
+    public void setObserverList(ArrayList<Observer> observerList) {
+        this.observerList = observerList;
+    }
+
+    private String capacitate;
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
-    private List<Produs> content = new ArrayList<>();
     private List<Accesoriu> accesoriu =new ArrayList<>();
-    public M21(int id, float camera, float capacitate) {
+    private String nume="M21";
+
+    public String getNume() {
+        return nume;
+    }
+
+    public M21(int id, String capacitate, String camera) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
-    }
-    public void addContent(Produs produs){
-        content.add(produs);
     }
 
     public void addAccesorii(Accesoriu accesoriu){
@@ -33,9 +80,6 @@ public class M21 extends Samsung implements Observable {
     public void print(){
         System.out.println("Telefon M21: ");
         printAccesorii();
-        for(Produs i:content){
-            i.print();
-        }
     }
 
     public void setAccesorii(List<Accesoriu> accesoriu) {
@@ -61,15 +105,8 @@ public class M21 extends Samsung implements Observable {
         }
     }
 
-    public void printAndroid() {
-
-    }
-
     public void accept(Visitor v) {
         v.visit(this);
-        for (Produs i:content){
-            i.accept(v);
-        }
     }
 
     public void setNewValue(int newValue) {

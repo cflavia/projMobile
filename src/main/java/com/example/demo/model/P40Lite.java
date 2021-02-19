@@ -13,6 +13,60 @@ public class P40Lite extends P40{
     private String marca=getMarca();
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
+    @Override
+    public String getNume() {
+        return nume;
+    }
+
+    private String nume="P40Lite";
+
+    @Override
+    public String getCamera() {
+        return camera;
+    }
+
+    @Override
+    public void setCamera(String camera) {
+        this.camera = camera;
+    }
+
+    @Override
+    public String getCapacitate() {
+        return capacitate;
+    }
+
+    @Override
+    public void setCapacitate(String capacitate) {
+        this.capacitate = capacitate;
+    }
+
+    public int getOldId() {
+        return oldId;
+    }
+
+    @Override
+    public void setOldId(int oldId) {
+        this.oldId = oldId;
+    }
+
+    public ArrayList<Observer> getObserverList() {
+        return observerList;
+    }
+
+    @Override
+    public void setObserverList(ArrayList<Observer> observerList) {
+        this.observerList = observerList;
+    }
+
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    @Override
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
+
     public P40Lite(int id, String capacitate, String camera) {
         super();
         this.id = id;

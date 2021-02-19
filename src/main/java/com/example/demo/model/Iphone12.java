@@ -13,7 +13,7 @@ public class Iphone12 extends Iphone implements Observable {
     private String camera;
     private String capacitate;
     private int oldId;
-    private String nume;
+    private String nume="Iphone12";
     private ArrayList<Observer> observerList=new ArrayList<>();
 
     @Override
@@ -48,26 +48,12 @@ public class Iphone12 extends Iphone implements Observable {
         return nume;
     }
 
-    public void setNume(String nume) {
-        this.nume = nume;
-    }
-
     public ArrayList<Observer> getObserverList() {
         return observerList;
     }
 
     public void setObserverList(ArrayList<Observer> observerList) {
         this.observerList = observerList;
-    }
-
-    @Override
-    public String getMarca() {
-        return marca;
-    }
-
-    @Override
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
 

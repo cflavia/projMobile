@@ -12,16 +12,6 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
     private int id;
 
     @Override
-    public String getMarca() {
-        return marca;
-    }
-
-    @Override
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    @Override
     public String getCamera() {
         return camera;
     }
@@ -47,11 +37,6 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
     }
 
     @Override
-    public void setNume(String nume) {
-        this.nume = nume;
-    }
-
-    @Override
     public int getOldId() {
         return oldId;
     }
@@ -73,7 +58,7 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
 
     private String camera;
     private String capacitate;
-    private String nume;
+    private String nume="Iphone12ProMax";
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();
     Capacitate c;
@@ -94,13 +79,10 @@ public class Iphone12ProMax extends Iphone12 implements Observable {
 
     private List<Accesoriu> accesoriu =new ArrayList<>();
 
-    public Iphone12ProMax(int id,String nume,String marca, String capacitate,String camera, List<Accesoriu>accesoriu) {
+    public Iphone12ProMax(int id, String capacitate,String camera) {
         this.id = id;
         this.camera = camera;
         this.capacitate = capacitate;
-        this.nume=nume;
-        this.marca=marca;
-        this.accesoriu=accesoriu;
     }
 
     public void addAccesorii(Accesoriu accesoriu){

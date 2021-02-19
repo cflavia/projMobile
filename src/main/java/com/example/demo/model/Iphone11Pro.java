@@ -30,11 +30,6 @@ public class Iphone11Pro extends Iphone11 implements Observable {
     }
 
     @Override
-    public void setNume(String nume) {
-        this.nume = nume;
-    }
-
-    @Override
     public String getCapacitate() {
         return capacitate;
     }
@@ -64,19 +59,9 @@ public class Iphone11Pro extends Iphone11 implements Observable {
         this.observerList = observerList;
     }
 
-    @Override
-    public String getMarca() {
-        return marca;
-    }
-
-    @Override
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
 
     private String camera;
-    private String nume;
+    private String nume="Iphone11Pro";
     private String capacitate;
     private int oldId;
     private ArrayList<Observer> observerList=new ArrayList<>();

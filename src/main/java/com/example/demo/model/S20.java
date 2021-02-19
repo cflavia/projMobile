@@ -11,9 +11,59 @@ public class S20 extends Samsung implements Observable {
     private String camera;
     private String capacitate;
     private int oldId;
+
+    public String getNume() {
+        return nume;
+    }
+
     private ArrayList<Observer> observerList=new ArrayList<>();
     private String marca=getMarca();
     private List<Accesoriu> accesoriu =new ArrayList<>();
+    private String nume="S20";
+
+    @Override
+    public String getCamera() {
+        return camera;
+    }
+
+    @Override
+    public void setCamera(String camera) {
+        this.camera = camera;
+    }
+
+    @Override
+    public String getCapacitate() {
+        return capacitate;
+    }
+
+    @Override
+    public void setCapacitate(String capacitate) {
+        this.capacitate = capacitate;
+    }
+
+    public int getOldId() {
+        return oldId;
+    }
+
+    public void setOldId(int oldId) {
+        this.oldId = oldId;
+    }
+
+    public ArrayList<Observer> getObserverList() {
+        return observerList;
+    }
+
+    public void setObserverList(ArrayList<Observer> observerList) {
+        this.observerList = observerList;
+    }
+
+    public List<Accesoriu> getAccesoriu() {
+        return accesoriu;
+    }
+
+    public void setAccesoriu(List<Accesoriu> accesoriu) {
+        this.accesoriu = accesoriu;
+    }
 
     public S20(int id, String capacitate, String camera) {
         this.id = id;
@@ -51,10 +101,6 @@ public class S20 extends Samsung implements Observable {
         for (Accesoriu i: accesoriu){
             i.print();
         }
-    }
-
-    public void printAndroid() {
-
     }
 
     public void accept(Visitor v) {
